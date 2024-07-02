@@ -1,0 +1,12 @@
+names:
+- LP
+nc: 1
+roboflow:
+  license: CC BY 4.0
+  project: license-plate-7egee
+  url: https://universe.roboflow.com/license-plate-mhig5/license-plate-7egee/dataset/5
+  version: 5
+  workspace: license-plate-mhig5
+test: C:\Users\moble_pc\Desktop\yungeun\license-plate-5\test\images
+train: C:\Users\moble_pc\Desktop\yungeun\license-plate-5\train\images
+val: C:\Users\moble_pc\Desktop\yungeun\license-plate-5\valid\images
