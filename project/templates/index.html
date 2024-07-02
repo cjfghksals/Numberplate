@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>License Plate Recognition</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>License Plate Recognition</h1>
+    <div>
+        <img id="video_feed" src="{{ url_for('video_feed') }}" width="640" height="480" autoplay>
+    </div>
+    <div id="result">
+        <h2>Detected License Plate:</h2>
+        <p id="plate_number"></p>
+        <p id="info"></p>
+        <p id="info1"></p>
+        <p id="info2"></p>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.4.1/socket.io.js"></script>
+    <script>
+        const socket = io.connect(`ws://${window.location.host}`);
+
+        socket.on('server_message', function(data) {
+            document.getElementById("plate_number").textContent = data.plate_number;
+            document.getElementById("info").textContent = data.info;
+            document.getElementById("info1").textContent = data.info1;
+            document.getElementById("info2").textContent = data.info2;
+
+        });
+    </script>
+</body>
+</html>
